@@ -1,0 +1,58 @@
+<div class="calculator">
+  <h1>Calculator</h1>
+
+  <div class="calculator_container">
+    @for (group of calcGroups; track $index) {
+    <div>
+      <select [(ngModel)]="group.first.modificator">
+        @for (modificator of calcModifiers | keyvalue; track $index) {
+        <option [value]="modificator.value">
+          {{ modificator.value }}
+        </option>
+        }
+      </select>
+      <input
+        type="number"
+        class="calculator__input"
+        [(ngModel)]="group.first.value"
+      />
+      <select [(ngModel)]="group.operation">
+        @for (operation of calcOperations | keyvalue; track $index) {
+        <option [value]="operation.value">{{ operation.value }}</option>
+        }
+      </select>
+      <select [(ngModel)]="group.second.modificator">
+        @for (modificator of calcModifiers | keyvalue; track $index) {
+        <option [value]="modificator.value">{{ modificator.value }}</option>
+        }
+      </select>
+      <input
+        type="number"
+        class="calculator__input"
+        [(ngModel)]="group.second.value"
+      />
+      @if ($index != 0) {<button (click)="removeGroup($index)">Remove</button>}
+    </div>
+
+    @if (operationsBetweenGroups.length > $index) {
+
+    <select
+      class="operating_between_groups"
+      [(ngModel)]="operationsBetweenGroups[$index]"
+    >
+      @for (operation of calcOperations | keyvalue; track $index) {
+      <option [value]="operation.value">{{ operation.value }}</option>
+      }
+    </select>
+
+    } }
+  </div>
+
+  <span class="calculator__result">{{ result ? result : "Press calc" }}</span>
+
+  <div>
+    <button (click)="addGroup()">Add group</button>
+    <!-- <button (click)="removeGroup()"></button> -->
+  </div>
+  <button>Calc</button>
+</div>
