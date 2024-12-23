@@ -15,3 +15,9 @@
 .operating_between_groups {
   width: fit-content;
 }
+
+.calculator__history {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

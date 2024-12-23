@@ -49,10 +49,14 @@
   </div>
 
   <span class="calculator__result">{{ result ? result : "Press calc" }}</span>
-
+  <button (click)="calcGproup()">Calc</button>
   <div>
     <button (click)="addGroup()">Add group</button>
-    <!-- <button (click)="removeGroup()"></button> -->
   </div>
-  <button>Calc</button>
+  <div class="calculator__history">
+    <span>History</span>
+    <span *ngFor="let obj of history; let i = index"
+      >{{ i + 1 }}. {{ obj }}</span
+    >
+  </div>
 </div>
