@@ -31,7 +31,9 @@
         class="calculator__input"
         [(ngModel)]="group.second.value"
       />
-      @if ($index != 0) {<button (click)="removeGroup($index)">Remove</button>}
+      @if ($index != 0) {<button class="btn" (click)="removeGroup($index)">
+        Remove</button
+      >}
     </div>
 
     @if (operationsBetweenGroups.length > $index) {
@@ -49,9 +51,9 @@
   </div>
 
   <span class="calculator__result">{{ result ? result : "Press calc" }}</span>
-  <button (click)="calcGproup()">Calc</button>
+  <button class="btn" (click)="calcGproup()">Calc</button>
   <div>
-    <button (click)="addGroup()">Add group</button>
+    <button class="btn" (click)="addGroup()">Add group</button>
   </div>
   <div class="calculator__history">
     <span>History</span>

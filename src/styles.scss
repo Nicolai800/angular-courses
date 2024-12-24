@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --dark-color: #000000;
+  --light-color: #ffffff;
+  --btn-background-color: #6c757d;
+  --gray-color: #5f646d;
+  --dark-hover-color: #161616;
+  --text-color: #343a40;
+  --light-transparent-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn {
+  background: var(--btn-background-color);
+  color: var(--light-color);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #5a6268;
+}
+
+.btn:active {
+  background: #495057;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

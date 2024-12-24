@@ -1,9 +1,10 @@
 .calculator {
   border: 1px solid black;
-  background: rgb(221, 217, 217);
+  background: #f8f9fa;
   padding: 20px;
   border-radius: 6px;
   width: fit-content;
+  color: var(--text-color);
 }
 
 .calculator_container {
