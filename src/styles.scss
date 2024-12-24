@@ -9,15 +9,19 @@
   --light-transparent-color: rgba(255, 255, 255, 0.75);
 }
 
+.neon-blue {
+  --neon: #2dd9fe;
+  --neon-glow: #00a3d5;
+}
 .btn {
-  background: var(--btn-background-color);
-  color: var(--light-color);
+  color: var(--dark-color);
+  background-color: var(--neon);
   cursor: pointer;
   border-radius: 4px;
   padding: 4px;
-  border: none;
   outline: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  border: 5px solid var(--neon);
+  box-shadow: 0 0 50px var(--neon-glow), inset 0 0 50px var(--neon-glow);
   transition: all 0.2s ease;
 }
 
@@ -29,4 +33,11 @@
   background: #495057;
   transform: translateY(2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1,
+span {
+  color: var(--neon);
+  text-shadow: 0 0 50px var(--neon-glow), 0 0 20px var(--neon-glow);
+  text-align: center;
 }

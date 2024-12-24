@@ -1,5 +1,5 @@
 <div class="calculator">
-  <h1>Calculator</h1>
+  <h1 class="neon-blue">Calculator</h1>
 
   <div class="calculator_container">
     @for (group of calcGroups; track $index) {
@@ -31,7 +31,10 @@
         class="calculator__input"
         [(ngModel)]="group.second.value"
       />
-      @if ($index != 0) {<button class="btn" (click)="removeGroup($index)">
+      @if ($index != 0) {<button
+        class="btn neon-blue"
+        (click)="removeGroup($index)"
+      >
         Remove</button
       >}
     </div>
@@ -51,12 +54,12 @@
   </div>
 
   <span class="calculator__result">{{ result ? result : "Press calc" }}</span>
-  <button class="btn" (click)="calcGproup()">Calc</button>
+  <button class="btn neon-blue" (click)="calcGproup()">Calc</button>
   <div>
-    <button class="btn" (click)="addGroup()">Add group</button>
+    <button class="btn neon-blue" (click)="addGroup()">Add group</button>
   </div>
   <div class="calculator__history">
-    <span>History</span>
+    <span class="neon-blue">History</span>
     <span *ngFor="let obj of history; let i = index"
       >{{ i + 1 }}. {{ obj }}</span
     >
