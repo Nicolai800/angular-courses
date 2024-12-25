@@ -3,8 +3,8 @@
 
   <div class="calculator_container">
     @for (group of calcGroups; track $index) {
-    <div>
-      <select [(ngModel)]="group.first.modificator">
+    <div class="calculator__group">
+      <select [(ngModel)]="group.first.modificator" class="calculator__input">
         @for (modificator of calcModifiers | keyvalue; track $index) {
         <option [value]="modificator.value">
           {{ modificator.value }}
@@ -16,12 +16,12 @@
         class="calculator__input"
         [(ngModel)]="group.first.value"
       />
-      <select [(ngModel)]="group.operation">
+      <select [(ngModel)]="group.operation" class="calculator__input">
         @for (operation of calcOperations | keyvalue; track $index) {
         <option [value]="operation.value">{{ operation.value }}</option>
         }
       </select>
-      <select [(ngModel)]="group.second.modificator">
+      <select [(ngModel)]="group.second.modificator" class="calculator__input">
         @for (modificator of calcModifiers | keyvalue; track $index) {
         <option [value]="modificator.value">{{ modificator.value }}</option>
         }
@@ -32,7 +32,7 @@
         [(ngModel)]="group.second.value"
       />
       @if ($index != 0) {<button
-        class="btn neon-blue"
+        class="btn neon-blue remove_btn"
         (click)="removeGroup($index)"
       >
         Remove</button
@@ -52,15 +52,19 @@
 
     } }
   </div>
+  <div class="calculator__result_container">
+    <span class="calculator__result neon-blue">
+      Result: {{ result ? result : "Press Calculate" }}</span
+    >
+    <button class="btn neon-blue" (click)="calcGproup()">Calculate</button>
+  </div>
 
-  <span class="calculator__result">{{ result ? result : "Press calc" }}</span>
-  <button class="btn neon-blue" (click)="calcGproup()">Calc</button>
   <div>
     <button class="btn neon-blue" (click)="addGroup()">Add group</button>
   </div>
   <div class="calculator__history">
     <span class="neon-blue">History</span>
-    <span *ngFor="let obj of history; let i = index"
+    <span class="neon-blue" *ngFor="let obj of history; let i = index"
       >{{ i + 1 }}. {{ obj }}</span
     >
   </div>

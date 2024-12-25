@@ -2,7 +2,6 @@
 :root {
   --dark-color: #000000;
   --light-color: #ffffff;
-  --btn-background-color: #6c757d;
   --gray-color: #5f646d;
   --dark-hover-color: #161616;
   --text-color: #343a40;
@@ -14,25 +13,23 @@
   --neon-glow: #00a3d5;
 }
 .btn {
-  color: var(--dark-color);
-  background-color: var(--neon);
+  color: var(--light-color);
   cursor: pointer;
   border-radius: 4px;
   padding: 4px;
   outline: none;
-  border: 5px solid var(--neon);
-  box-shadow: 0 0 50px var(--neon-glow), inset 0 0 50px var(--neon-glow);
+  border: 1px solid var(--neon);
+  box-shadow: 0 0 50px var(--neon-glow), inset 0 0 60px var(--neon-glow);
   transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background: #5a6268;
+  color: var(--dark-color);
 }
 
 .btn:active {
   background: #495057;
   transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 h1,
