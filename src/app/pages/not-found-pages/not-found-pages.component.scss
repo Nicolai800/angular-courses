@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.not-found {
+  text-align: center;
+  background: var(--dark-color);
+  padding: 50px;
+  border-radius: 4px;
+}
+
+.home-link {
+  text-decoration: none;
+  color: var(--neon);
+  text-shadow: 0 0 50px var(--neon-glow), 0 0 50px var(--neon-glow);
+  text-align: center;
+  cursor: pointer;
+}

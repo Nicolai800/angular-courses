@@ -1,0 +1,7 @@
+<div class="object-list">
+  @for (item of myObjects; track $index) {
+  <div (click)="redirectTo(item.id)" class="object-list-item neon-blue">
+    <span class="object-item-tite neon-blue">{{ item.title }}</span>
+  </div>
+  }
+</div>
