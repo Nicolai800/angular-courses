@@ -105,5 +105,9 @@
     <div [ngClass]="isShow ? 'style-with-derectives neon-blue' : ''">
       Attribute Directive [ngClass]
     </div>
+    <h2 [myChangeColor]="colors">Custom Attribute Directive</h2>
+    <h2 *myIf="isShow" class="neon-blue" [style.color]="'white'">
+      Custom Structural Directive
+    </h2>
   </div>
 </div>

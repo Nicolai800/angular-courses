@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MyChangeColorDirective } from '../my-change-color.directive';
+import { MyIfDirective } from '../my-if.directive';
 
 @Component({
   selector: 'app-derectives',
-  imports: [CommonModule],
+  imports: [CommonModule, MyChangeColorDirective, MyIfDirective],
   templateUrl: './derectives.component.html',
   styleUrl: './derectives.component.scss',
 })
