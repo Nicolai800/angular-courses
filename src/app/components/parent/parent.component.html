@@ -1,0 +1,11 @@
+<h1>Life Cycle.Data transfer between components</h1>
+<h2>Parent component</h2>
+<div class="parent-container">
+  @if (isShow) {<app-child [title]="message" (eventChange)="handleEvent($event)"
+    >Hello from Parent</app-child
+  >}
+
+  <button class="btn neon-blue" (click)="isShow = !isShow">
+    {{ isShow ? "Click to destroy" : "Click to Show" }}
+  </button>
+</div>

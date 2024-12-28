@@ -1,0 +1,16 @@
+:host {
+  background: var(--dark-color);
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.child-wrapper {
+  display: flex;
+  gap: 10px;
+  color: var(--light-color);
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}

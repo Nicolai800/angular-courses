@@ -4,6 +4,7 @@ import { NotFoundPagesComponent } from './pages/not-found-pages/not-found-pages.
 import { ObjectListComponent } from './object-list/components/list/object-list.component';
 import { ObjectItemComponent } from './object-list/components/item/object-item.component';
 import { DerectivesComponent } from './lessons/derectives/derectives.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path: 'derectives',
     component: DerectivesComponent,
+  },
+  {
+    path: 'life-cycle',
+    component: ParentComponent,
   },
   { path: '**', component: NotFoundPagesComponent },
 ];

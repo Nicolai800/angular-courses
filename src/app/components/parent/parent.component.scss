@@ -1,0 +1,14 @@
+h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  margin-top: 20px;
+}
