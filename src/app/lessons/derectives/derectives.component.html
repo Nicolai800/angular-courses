@@ -1,86 +1,109 @@
 <h1>Structural and Attribute Directives</h1>
 <div class="derectives-wrapper">
   <div class="derectives">
-    <h4>Angular 2+:</h4>
-    <div
-      *ngFor="
-        let color of colors;
-        let i = index;
-        let first = first;
-        let last = last;
-        let even = even;
-        let odd = odd
-      "
-    >
-      <span [style.color]="color"
-        >{{ i + 1 }}.{{ first ? "I am first" : ""
-        }}{{ last ? "I am last" : "" }}.{{ color }}
-      </span>
+    <h4 class="neon-blue">Angular 2+:</h4>
+    <span class="neon-blue">*ngFor:</span>
+    <div class="derectives-cycle">
+      <div
+        *ngFor="
+          let color of colors;
+          let i = index;
+          let first = first;
+          let last = last;
+          let even = even;
+          let odd = odd
+        "
+      >
+        <span [style.color]="color"
+          >{{ i + 1 }}.{{ first ? "I am first" : ""
+          }}{{ last ? "I am last" : "" }}.{{ color }}
+        </span>
+      </div>
     </div>
-
+    <h4 class="neon-blue">*ngIf</h4>
     <button (click)="isShow = !isShow" class="btn neon-blue">
       Click to show
     </button>
     <div *ngIf="isShow; else emptyState">
-      <span> isShow = {{ isShow }}</span>
+      <span class="switch"> isShow = {{ isShow }}</span>
     </div>
     <ng-template #emptyState>
-      <div>isShow = {{ isShow }}</div></ng-template
+      <span class="switch">isShow = {{ isShow }}</span></ng-template
     >
-    <div *ngFor="let color of colors.slice(0, 3)">
-      <div>
-        <button (click)="currentColor = color" class="btn neon-blue">
-          {{ color }}
-        </button>
+    <h4 class="neon-blue">ngSwitch</h4>
+    <div class="switch-btn-wrapper">
+      <div *ngFor="let color of colors.slice(0, 3)">
+        <div>
+          <button (click)="currentColor = color" class="btn neon-blue">
+            {{ color }}
+          </button>
+        </div>
       </div>
     </div>
-    <div [ngSwitch]="currentColor">
+
+    <div [ngSwitch]="currentColor" class="switch">
+      <span> Case result:</span>
       <div *ngSwitchCase="'red'">Current color - red</div>
-      <div *ngSwitchCase="'green'">Your color - green</div>
+      <div *ngSwitchCase="'white'">Your color - white</div>
       <div *ngSwitchCase="'blue'">You choise color - blue</div>
-    </div>
-    <div [ngClass]="isShow ? 'style-with-derectives' : ''">
-      Attribute Directive [ngClass]
     </div>
   </div>
 
-  <div class="line"></div>
   <div class="derectives">
-    <h4>Angular 16+:</h4>
-    @for (color of colors; track $index; let first = $first; let last = $last) {
-    <div>
-      <span [style.color]="color"
-        >{{ $index + 1 }}.{{ first ? "I am first" : ""
-        }}{{ last ? "I am last" : "" }}.{{ color }}
-      </span>
-    </div>
+    <h4 class="neon-blue">Angular 16+:</h4>
+    <span class="neon-blue">for:</span>
+    <div class="derectives-cycle">
+      @for (color of colors; track $index; let first = $first; let last = $last)
+      {
+      <div>
+        <span [style.color]="color"
+          >{{ $index + 1 }}.{{ first ? "I am first" : ""
+          }}{{ last ? "I am last" : "" }}.{{ color }}
+        </span>
+      </div>
 
-    }@empty {
-    <span>Empty array</span> }
+      }@empty {
+      <span>Empty array</span> }
+    </div>
+    <h4 class="neon-blue">if</h4>
     <button (click)="isShow = !isShow" class="btn neon-blue">
       Click to show
     </button>
     @if (isShow) {
     <div>
-      <span>{{ isShow }} isShow = true</span>
+      <span class="switch">{{ isShow }} isShow = true</span>
     </div>
     }@else {
-    <div>isShow = {{ isShow }}</div>
-    } @for (color of colors.slice(0,3); track $index;) {
-    <div>
-      <button (click)="currentColor = color" class="btn neon-blue">
-        {{ color }}
-      </button>
+    <span class="switch">isShow = {{ isShow }}</span>
+    }
+    <h4 class="neon-blue">Switch</h4>
+    <div class="switch-btn-wrapper">
+      @for (color of colors.slice(0,3); track $index;) {
+      <div>
+        <button (click)="currentColor = color" class="btn neon-blue">
+          {{ color }}
+        </button>
+      </div>
+      }
     </div>
-    } @switch (currentColor) { @case ('red') {
-    <div>red color</div>
-    } @case ('green') {
-    <div>case is green</div>
-    } @case ('blue') {
-    <div>color is blue</div>
-    } }
+    <div class="switch">
+      <span> Case result:</span>
+      @switch (currentColor) { @case ('red') {
+      <div>red color</div>
+      } @case ('white') {
+      <div>case is white</div>
+      } @case ('blue') {
+      <div>color is blue</div>
+      } }
+    </div>
+  </div>
+  <div class="derectives">
+    <h4 class="neon-blue">Click the buttons</h4>
     <div [ngStyle]="isShow ? elementStyle : ''">
       Attribute Directive [ngStyle]
+    </div>
+    <div [ngClass]="isShow ? 'style-with-derectives neon-blue' : ''">
+      Attribute Directive [ngClass]
     </div>
   </div>
 </div>

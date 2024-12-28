@@ -10,15 +10,14 @@ import { CommonModule } from '@angular/common';
 export class DerectivesComponent {
   colors: string[] = [
     'red',
-    'green',
+    'white',
     'blue',
     'yellow',
     'purple',
     'orange',
     'pink',
     'brown',
-    'black',
-    'white',
+    'green',
   ];
 
   isShow: boolean = true;
@@ -26,8 +25,9 @@ export class DerectivesComponent {
   currentColor: string = this.colors[0];
 
   elementStyle: any = {
-    color: 'blue',
+    color: 'var(--light-color)',
     opacity: 0.5,
-    border: '1px solid black',
+    border: '1px solid var(--light-color)',
+    padding: '10px',
   };
 }
