@@ -1,12 +1,9 @@
 <h1>Requests and Services</h1>
 <div class="post-wrapper">
   @if(posts$ | async; as posts){ @for (post of posts; track post.id) {
-  <div class="post">
+  <div class="post" (click)="redirectTo(post.id)">
     <span class="post__title">{{ post.id }}-{{ post.title }}</span>
     <span class="post__body">{{ post.body }}</span>
   </div>
   } }
-</div>
-<div>
-  <app-post-item></app-post-item>
 </div>
