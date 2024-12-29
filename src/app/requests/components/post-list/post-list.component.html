@@ -1,0 +1,7 @@
+<h1>Requests and Services</h1>
+<div>
+  @for (post of posts.slice(0,10); track $index) {
+  <span> - {{ post.id }}</span>
+  }
+  <app-post-item></app-post-item>
+</div>

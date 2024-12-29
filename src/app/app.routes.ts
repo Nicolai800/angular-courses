@@ -5,6 +5,7 @@ import { ObjectListComponent } from './object-list/components/list/object-list.c
 import { ObjectItemComponent } from './object-list/components/item/object-item.component';
 import { DerectivesComponent } from './lessons/derectives/derectives.component';
 import { ParentComponent } from './components/parent/parent.component';
+import { PostListComponent } from './requests/components/post-list/post-list.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'life-cycle',
     component: ParentComponent,
+  },
+  {
+    path: 'requests',
+    component: PostListComponent,
   },
   { path: '**', component: NotFoundPagesComponent },
 ];
