@@ -6,6 +6,7 @@ import { ObjectItemComponent } from './object-list/components/item/object-item.c
 import { DerectivesComponent } from './lessons/derectives/derectives.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { PostListComponent } from './requests/components/post-list/post-list.component';
+import { PostItemComponent } from './requests/components/post-item/post-item.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'requests',
     component: PostListComponent,
+  },
+  {
+    path: 'requests/:id',
+    component: PostItemComponent,
   },
   { path: '**', component: NotFoundPagesComponent },
 ];

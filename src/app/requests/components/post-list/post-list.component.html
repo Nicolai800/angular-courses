@@ -1,7 +1,12 @@
 <h1>Requests and Services</h1>
+<div class="post-wrapper">
+  @if(posts$ | async; as posts){ @for (post of posts; track post.id) {
+  <div class="post">
+    <span class="post__title">{{ post.id }}-{{ post.title }}</span>
+    <span class="post__body">{{ post.body }}</span>
+  </div>
+  } }
+</div>
 <div>
-  @for (post of posts.slice(0,10); track $index) {
-  <span> - {{ post.id }}</span>
-  }
   <app-post-item></app-post-item>
 </div>

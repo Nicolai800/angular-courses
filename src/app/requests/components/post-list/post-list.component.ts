@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PostService, Post } from '../../services/post.service';
 import { CommonModule } from '@angular/common';
 import { PostItemComponent } from '../post-item/post-item.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-list',
@@ -12,9 +13,9 @@ import { PostItemComponent } from '../post-item/post-item.component';
 export class PostListComponent {
   postService = inject(PostService);
 
-  posts: Post[] = [];
+  posts$?: Observable<Post[]>;
 
   ngOnInit() {
-    this.postService.getPosts().subscribe((res) => (this.posts = res));
+    this.posts$ = this.postService.getPosts();
   }
 }

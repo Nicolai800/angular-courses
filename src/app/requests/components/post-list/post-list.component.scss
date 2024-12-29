@@ -1,0 +1,31 @@
+.post-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin: 10px;
+}
+
+.post {
+  border: 1px solid var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 5px;
+
+  &:hover {
+    border: 2px solid var(--dark-color);
+    transform: translateY(2px);
+  }
+}
+
+.post__body {
+  font-weight: 400;
+  font-size: 18px;
+}
+.post__title {
+  font-weight: 600;
+  font-size: 20px;
+}
