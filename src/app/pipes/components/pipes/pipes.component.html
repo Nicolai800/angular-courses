@@ -1,0 +1,16 @@
+<h1>Pipes</h1>
+<div class="container">
+  <div class="pipes-wrapper">
+    <span>{{ name }}({{ name | uppercase }} uppercase)</span>
+    <span>{{ surname }}({{ surname | lowercase }} lowercase )</span>
+    <span>{{ date | date }}</span>
+    <span>{{ date | date : "medium" }}</span>
+    <span>{{ date | date : "mm:ss" }}</span>
+    <span>{{ date | date : "MMM dd, yyyy 'at' hh:mm" }}</span>
+  </div>
+  <div class="pipes-wrapper">
+    <span>Custom Pipe</span>
+    <span>{{ surname }} - {{ surname | myCustomPipe }}</span>
+    <span>{{ date | myCustomPipe }}</span>
+  </div>
+</div>
