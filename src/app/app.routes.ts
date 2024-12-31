@@ -8,6 +8,7 @@ import { ParentComponent } from './components/parent/parent.component';
 import { PostListComponent } from './requests/components/post-list/post-list.component';
 import { PostItemComponent } from './requests/components/post-item/post-item.component';
 import { PipesComponent } from './pipes/components/pipes/pipes.component';
+import { FormsComponent } from './forms/components/forms/forms.component';
 
 export const routes: Routes = [
   {
@@ -46,6 +47,10 @@ export const routes: Routes = [
   {
     path: 'pipes',
     component: PipesComponent,
+  },
+  {
+    path: 'forms',
+    component: FormsComponent,
   },
   { path: '**', component: NotFoundPagesComponent },
 ];

@@ -1,43 +1,62 @@
 <nav class="navigation">
-  <div>
-    <a
-      [routerLink]="['/calculator']"
-      routerLinkActive="active"
-      class="nav-link neon-blue"
-      >Calculator</a
-    >
-  </div>
+  <a
+    [routerLink]="['/calculator']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Calculator</a
+  >
+  <details>
+    <summary class="nav-link neon-blue">Lessons</summary>
 
-  <div>
-    <a
-      [routerLink]="['/object-list']"
-      routerLinkActive="active"
-      class="nav-link neon-blue"
-      >Object list</a
-    >
-  </div>
-  <div>
-    <a
-      [routerLink]="['/derectives']"
-      routerLinkActive="active"
-      class="nav-link neon-blue"
-      >Derectives</a
-    >
-  </div>
-  <div>
-    <a
-      [routerLink]="['/life-cycle']"
-      routerLinkActive="active"
-      class="nav-link neon-blue"
-      >Life Cycle and Data transfers</a
-    >
-  </div>
-  <div>
-    <a
-      [routerLink]="['/requests']"
-      routerLinkActive="active"
-      class="nav-link neon-blue"
-      >Requests and Services</a
-    >
-  </div>
+    <ul>
+      <li>
+        <a
+          [routerLink]="['/object-list']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Object list</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/derectives']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Derectives</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/life-cycle']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Life Cycle and Data transfers</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/requests']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Requests and Services</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/pipes']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Pipes</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/forms']"
+          routerLinkActive="active"
+          class="nav-link neon-blue"
+          >Forms</a
+        >
+      </li>
+    </ul>
+  </details>
 </nav>

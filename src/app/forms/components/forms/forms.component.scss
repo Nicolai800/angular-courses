@@ -1,0 +1,20 @@
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid var(--dark-color);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.login-form-wrapper__block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.required {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}

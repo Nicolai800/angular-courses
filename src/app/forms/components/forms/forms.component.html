@@ -1,0 +1,33 @@
+<h1>Forms</h1>
+
+<div class="login-form-wrapper" [formGroup]="myForm">
+  <div class="login-form-wrapper__block">
+    <label for="login">Login</label>
+    <div>
+      <input type="text" id="login" formControlName="login" />
+      @if (!myForm.controls.login.valid && myForm.controls.login.touched) {<span
+        class="required"
+        >This is a required field</span
+      >}
+    </div>
+  </div>
+  <div class="login-form-wrapper__block">
+    <label for="email">Email</label>
+    <div>
+      <input type="email" id="email" formControlName="email" /> @if
+      (!myForm.controls.email.valid && myForm.controls.email.touched) {<span
+        class="required"
+        >This is a required field</span
+      >}
+    </div>
+  </div>
+  <div class="login-form-wrapper__block">
+    <label for="password">Password</label>
+    <div>
+      <input type="password" id="password" formControlName="password" /> @if
+      (!myForm.controls.password.valid && myForm.controls.password.touched)
+      {<span class="required">This is a required field</span>}
+    </div>
+  </div>
+  <button (click)="handleValue()" [disabled]="!myForm.valid">Send value</button>
+</div>

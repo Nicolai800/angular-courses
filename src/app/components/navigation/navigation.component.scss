@@ -2,11 +2,19 @@
   width: 99dvw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   gap: 50px;
   margin-bottom: 20px;
   padding: 15px;
+  padding-left: 50px;
   background: var(--dark-color);
+  position: relative;
+  details {
+    position: absolute;
+    left: 150px;
+    background: var(--dark-color);
+    padding: 0 15px 10px 16px;
+  }
 }
 
 .nav-link {
