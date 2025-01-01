@@ -31,3 +31,28 @@
   </div>
   <button (click)="handleValue()" [disabled]="!myForm.valid">Send value</button>
 </div>
+
+<div class="login-form-wrapper" [formGroup]="validatorForm">
+  <h3>Custom validator</h3>
+  <div class="login-form-wrapper__block">
+    <label for="mail">Mail</label>
+    <div>
+      <input type="email" id="mail" formControlName="mail" /> @if
+      (!validatorForm.controls.mail.valid &&
+      validatorForm.controls.mail.touched) {<span class="required"
+        >Incorrect data</span
+      >}
+    </div>
+  </div>
+  <div class="login-form-wrapper__block">
+    <label for="password_one">Enter the password</label>
+    <input type="password" id="password_one" formControlName="password_one" />
+  </div>
+  <div class="login-form-wrapper__block">
+    <label for="password_two">Enter the password again</label>
+    <input type="password" id="password_two" formControlName="password_two" />
+  </div>
+  @if (validatorForm.errors?.['PasswordDoNotMatch']) {
+  <span>Password do not match</span>
+  }
+</div>
