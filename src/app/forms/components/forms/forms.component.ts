@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
+  FormArray,
+  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -37,6 +39,19 @@ export const conformPassword: ValidatorFn = (
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent {
+  fbForm: FormGroup;
+
+  get skills(): FormArray {
+    return this.fbForm.get('skills') as FormArray;
+  }
+
+  constructor(private _fb: FormBuilder) {
+    this.fbForm = this._fb.group({
+      name: ['User'],
+      skills: this._fb.array([]),
+    });
+  }
+
   myForm = new FormGroup({
     login: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -62,5 +77,25 @@ export class FormsComponent {
     } else {
       alert('ERROR');
     }
+  }
+
+  newSkill(): FormGroup {
+    return this._fb.group({
+      skill: '',
+      expirience: '',
+    });
+  }
+
+  addSkill(): void {
+    return this.skills.push(this.newSkill());
+  }
+
+  removeSkill(index: number): void {
+    return this.skills.removeAt(index);
+  }
+
+  onSubmit() {
+    console.log(this.fbForm.value);
+    this.skills.clear();
   }
 }

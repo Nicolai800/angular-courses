@@ -2,6 +2,7 @@
 
 <div class="login-form-wrapper" [formGroup]="myForm">
   <div class="login-form-wrapper__block">
+    <h3>FormGroup</h3>
     <label for="login">Login</label>
     <div>
       <input type="text" id="login" formControlName="login" />
@@ -56,3 +57,22 @@
   <span>Password do not match</span>
   }
 </div>
+
+<form class="login-form-wrapper" [formGroup]="fbForm" (ngSubmit)="onSubmit()">
+  <h3>FormBuilder</h3>
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name" />
+  <div formArrayName="skills">
+    @for (skill of skills.controls; track skill; let i = $index) {
+    <div [formGroupName]="i" class="login-form-builder">
+      <label [for]="i + 'skill'">{{ $index + 1 }} | Skill</label>
+      <input [id]="i + 'skill'" type="text" formControlName="skill" />
+      <label [for]="$index + 'exp'">Expirience</label>
+      <input [id]="$index + 'exp'" type="text" formControlName="expirience" />
+      <button class="btn" (click)="removeSkill(i)">Remove Skill</button>
+    </div>
+    }
+  </div>
+  <button class="btn" type="button" (click)="addSkill()">Add skill</button>
+  <button class="btn" type="submit">Submit</button>
+</form>
