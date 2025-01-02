@@ -6,13 +6,15 @@
   --dark-hover-color: #161616;
   --text-color: #343a40;
   --light-transparent-color: rgba(255, 255, 255, 0.75);
-  background: #00a3d5;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  background: #00a3d5;
 }
 
 .neon-blue {

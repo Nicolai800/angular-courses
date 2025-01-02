@@ -9,9 +9,11 @@ import {
   ValidationErrors,
   ValidatorFn,
   Validators,
+  FormsModule,
 } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
-export interface MyForm {
+export interface TemplateFormI {
   login: string;
   email: string;
   password: string;
@@ -34,11 +36,17 @@ export const conformPassword: ValidatorFn = (
 
 @Component({
   selector: 'app-forms',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormsModule, JsonPipe],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent {
+  templateForm: TemplateFormI = {
+    login: 'user333',
+    email: '',
+    password: '',
+  };
+
   fbForm: FormGroup;
 
   get skills(): FormArray {

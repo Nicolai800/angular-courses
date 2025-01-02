@@ -1,78 +1,110 @@
 <h1>Forms</h1>
+<div class="forms-wrapper">
+  <div class="login-form-wrapper" [formGroup]="myForm">
+    <div class="login-form-wrapper__block">
+      <h3>FormGroup</h3>
+      <label for="login">Login</label>
+      <div>
+        <input type="text" id="login" formControlName="login" />
+        @if (!myForm.controls.login.valid && myForm.controls.login.touched)
+        {<span class="required">This is a required field</span>}
+      </div>
+    </div>
+    <div class="login-form-wrapper__block">
+      <label for="email">Email</label>
+      <div>
+        <input type="email" id="email" formControlName="email" /> @if
+        (!myForm.controls.email.valid && myForm.controls.email.touched) {<span
+          class="required"
+          >This is a required field</span
+        >}
+      </div>
+    </div>
+    <div class="login-form-wrapper__block">
+      <label for="password">Password</label>
+      <div>
+        <input type="password" id="password" formControlName="password" /> @if
+        (!myForm.controls.password.valid && myForm.controls.password.touched)
+        {<span class="required">This is a required field</span>}
+      </div>
+    </div>
+    <button (click)="handleValue()" [disabled]="!myForm.valid">
+      Send value
+    </button>
+  </div>
 
-<div class="login-form-wrapper" [formGroup]="myForm">
-  <div class="login-form-wrapper__block">
-    <h3>FormGroup</h3>
-    <label for="login">Login</label>
-    <div>
-      <input type="text" id="login" formControlName="login" />
-      @if (!myForm.controls.login.valid && myForm.controls.login.touched) {<span
-        class="required"
-        >This is a required field</span
-      >}
+  <div class="login-form-wrapper" [formGroup]="validatorForm">
+    <h3>Custom validator</h3>
+    <div class="login-form-wrapper__block">
+      <label for="mail">Mail</label>
+      <div>
+        <input type="email" id="mail" formControlName="mail" /> @if
+        (!validatorForm.controls.mail.valid &&
+        validatorForm.controls.mail.touched) {<span class="required"
+          >Incorrect data</span
+        >}
+      </div>
     </div>
-  </div>
-  <div class="login-form-wrapper__block">
-    <label for="email">Email</label>
-    <div>
-      <input type="email" id="email" formControlName="email" /> @if
-      (!myForm.controls.email.valid && myForm.controls.email.touched) {<span
-        class="required"
-        >This is a required field</span
-      >}
+    <div class="login-form-wrapper__block">
+      <label for="password_one">Enter the password</label>
+      <input type="password" id="password_one" formControlName="password_one" />
     </div>
-  </div>
-  <div class="login-form-wrapper__block">
-    <label for="password">Password</label>
-    <div>
-      <input type="password" id="password" formControlName="password" /> @if
-      (!myForm.controls.password.valid && myForm.controls.password.touched)
-      {<span class="required">This is a required field</span>}
+    <div class="login-form-wrapper__block">
+      <label for="password_two">Enter the password again</label>
+      <input type="password" id="password_two" formControlName="password_two" />
     </div>
-  </div>
-  <button (click)="handleValue()" [disabled]="!myForm.valid">Send value</button>
-</div>
-
-<div class="login-form-wrapper" [formGroup]="validatorForm">
-  <h3>Custom validator</h3>
-  <div class="login-form-wrapper__block">
-    <label for="mail">Mail</label>
-    <div>
-      <input type="email" id="mail" formControlName="mail" /> @if
-      (!validatorForm.controls.mail.valid &&
-      validatorForm.controls.mail.touched) {<span class="required"
-        >Incorrect data</span
-      >}
-    </div>
-  </div>
-  <div class="login-form-wrapper__block">
-    <label for="password_one">Enter the password</label>
-    <input type="password" id="password_one" formControlName="password_one" />
-  </div>
-  <div class="login-form-wrapper__block">
-    <label for="password_two">Enter the password again</label>
-    <input type="password" id="password_two" formControlName="password_two" />
-  </div>
-  @if (validatorForm.errors?.['PasswordDoNotMatch']) {
-  <span>Password do not match</span>
-  }
-</div>
-
-<form class="login-form-wrapper" [formGroup]="fbForm" (ngSubmit)="onSubmit()">
-  <h3>FormBuilder</h3>
-  <label for="name">Name</label>
-  <input type="text" id="name" formControlName="name" />
-  <div formArrayName="skills">
-    @for (skill of skills.controls; track skill; let i = $index) {
-    <div [formGroupName]="i" class="login-form-builder">
-      <label [for]="i + 'skill'">{{ $index + 1 }} | Skill</label>
-      <input [id]="i + 'skill'" type="text" formControlName="skill" />
-      <label [for]="$index + 'exp'">Expirience</label>
-      <input [id]="$index + 'exp'" type="text" formControlName="expirience" />
-      <button class="btn" (click)="removeSkill(i)">Remove Skill</button>
-    </div>
+    @if (validatorForm.errors?.['PasswordDoNotMatch']) {
+    <span>Password do not match</span>
     }
   </div>
-  <button class="btn" type="button" (click)="addSkill()">Add skill</button>
-  <button class="btn" type="submit">Submit</button>
-</form>
+
+  <form class="login-form-wrapper" [formGroup]="fbForm" (ngSubmit)="onSubmit()">
+    <h3>FormBuilder Dynamic form</h3>
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name" />
+    <div formArrayName="skills">
+      @for (skill of skills.controls; track skill; let i = $index) {
+      <div [formGroupName]="i" class="login-form-builder">
+        <label [for]="i + 'skill'">{{ $index + 1 }} | Skill</label>
+        <input
+          [id]="i + 'skill'"
+          type="text"
+          class="dinamic-input"
+          formControlName="skill"
+        />
+        <label [for]="$index + 'exp'">Expirience</label>
+        <input
+          [id]="$index + 'exp'"
+          type="text"
+          class="dinamic-input"
+          formControlName="expirience"
+        />
+        <button class="btn" (click)="removeSkill(i)">Remove Skill</button>
+      </div>
+      }
+    </div>
+    <button class="btn" type="button" (click)="addSkill()">Add skill</button>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+
+  <div class="login-form-wrapper">
+    <h3>Template Driven Forms</h3>
+    <div class="login-form-wrapper__block">
+      <label for="templateLogin">Login</label>
+      <input type="text" id="templateLogin" [(ngModel)]="templateForm.login" />
+    </div>
+    <div class="login-form-wrapper__block">
+      <label for="templateEmail">Email</label>
+      <input type="email" id="templateEmail" [(ngModel)]="templateForm.email" />
+    </div>
+    <div class="login-form-wrapper__block">
+      <label for="templatePassword">Password</label>
+      <input
+        type="password"
+        id="templatePassword"
+        [(ngModel)]="templateForm.password"
+      />
+    </div>
+    <pre>{{ templateForm | json }}</pre>
+  </div>
+</div>
