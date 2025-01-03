@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MyObject, myObjects } from '../list/object-list.component';
 
@@ -11,7 +11,9 @@ import { MyObject, myObjects } from '../list/object-list.component';
 export class ObjectItemComponent {
   object?: MyObject;
 
-  constructor(private route: ActivatedRoute) {}
+  private route = inject(ActivatedRoute);
+
+  // constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {

@@ -12,6 +12,7 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
+import { RateComponent } from '../rate/rate.component';
 
 export interface TemplateFormI {
   login: string;
@@ -36,7 +37,7 @@ export const conformPassword: ValidatorFn = (
 
 @Component({
   selector: 'app-forms',
-  imports: [ReactiveFormsModule, FormsModule, JsonPipe],
+  imports: [ReactiveFormsModule, FormsModule, JsonPipe, RateComponent],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
 })
@@ -59,6 +60,10 @@ export class FormsComponent {
       skills: this._fb.array([]),
     });
   }
+
+  customForm = this._fb.group({
+    rate: [],
+  });
 
   myForm = new FormGroup({
     login: new FormControl('', Validators.required),

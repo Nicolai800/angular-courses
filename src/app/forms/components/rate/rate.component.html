@@ -1,0 +1,10 @@
+<div class="rate-wrapper">
+  @if(options.text != undefined){
+  <p>{{ options.text }}</p>
+  }
+  <div class="rate-wrapper">
+    @for (el of ratesArray; track $index) {
+    <div class="rate-item" (click)="onRate(el)">{{ el }}</div>
+    }
+  </div>
+</div>
