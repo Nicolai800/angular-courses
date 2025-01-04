@@ -108,8 +108,9 @@
     <pre>{{ templateForm | json }}</pre>
   </div>
 
-  <div class="login-form-wrapper">
+  <div class="login-form-wrapper" [formGroup]="customForm">
     <h3>Custom Control</h3>
-    <app-rate></app-rate>
+    <pre>{{ customForm.value | json }}</pre>
+    <app-rate [options]="ratesOptions" formControlName="rate"></app-rate>
   </div>
 </div>

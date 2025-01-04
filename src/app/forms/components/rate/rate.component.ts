@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 export interface RateOptions {
   rates: number;
@@ -7,14 +9,16 @@ export interface RateOptions {
 
 @Component({
   selector: 'app-rate',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './rate.component.html',
   styleUrl: './rate.component.scss',
-  // providers: [
-  //   provide: NG_VALUE_ACCESSOR,
-  //   multi: true,
-  //   useExisting: RateComponent
-  // ]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: RateComponent,
+    },
+  ],
 })
 export class RateComponent {
   @Input() options!: RateOptions;
@@ -72,9 +76,11 @@ export class RateComponent {
 
     while (condition) {
       this.ratesArray.push(count);
-      count++;
-      if ((count = this.options.rates)) {
+
+      if (this.ratesArray.length === this.options.rates) {
         condition = false;
+      } else {
+        count++;
       }
     }
   }

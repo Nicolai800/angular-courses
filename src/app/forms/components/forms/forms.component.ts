@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -12,7 +12,7 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-import { RateComponent } from '../rate/rate.component';
+import { RateComponent, RateOptions } from '../rate/rate.component';
 
 export interface TemplateFormI {
   login: string;
@@ -48,22 +48,28 @@ export class FormsComponent {
     password: '',
   };
 
-  fbForm: FormGroup;
+  _fb = inject(FormBuilder);
+
+  fbForm = this._fb.group({
+    name: ['User'],
+    skills: this._fb.array([]),
+  });
 
   get skills(): FormArray {
     return this.fbForm.get('skills') as FormArray;
   }
 
-  constructor(private _fb: FormBuilder) {
-    this.fbForm = this._fb.group({
-      name: ['User'],
-      skills: this._fb.array([]),
-    });
-  }
+  // constructor(private _fb: FormBuilder) {
+  // }
 
   customForm = this._fb.group({
-    rate: [],
+    rate: [2],
   });
+
+  ratesOptions: RateOptions = {
+    rates: 5,
+    text: 'Angular',
+  };
 
   myForm = new FormGroup({
     login: new FormControl('', Validators.required),
