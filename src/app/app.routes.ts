@@ -9,6 +9,7 @@ import { PostListComponent } from './requests/components/post-list/post-list.com
 import { PostItemComponent } from './requests/components/post-item/post-item.component';
 import { PipesComponent } from './pipes/components/pipes/pipes.component';
 import { FormsComponent } from './forms/components/forms/forms.component';
+import { DecoratorsComponent } from './decorators/decorators.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,10 @@ export const routes: Routes = [
   {
     path: 'forms',
     component: FormsComponent,
+  },
+  {
+    path: 'dynamic',
+    component: DecoratorsComponent,
   },
   { path: '**', component: NotFoundPagesComponent },
 ];

@@ -1,0 +1,11 @@
+<h1>Ng-container & Ng-templaete</h1>
+<div class="wrapper">
+  <ng-container *ngFor="let item of arr">
+    <p>{{ item }}</p>
+  </ng-container>
+  <p>First</p>
+  <p *ngIf="isShow; else second">Second true</p>
+  <p>Third</p>
+  <button (click)="changeShow()" class="btn">Click</button>
+</div>
+<ng-template #second>Second false</ng-template>
