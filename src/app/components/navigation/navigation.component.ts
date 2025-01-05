@@ -7,4 +7,9 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+  isNavShow = false;
+  toggleNav() {
+    this.isNavShow = !this.isNavShow;
+  }
+}

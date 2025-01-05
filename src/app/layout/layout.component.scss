@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  height: 100dvh;
+}
+
+.workspace {
+  padding: 24px;
+  display: flex;
+  width: 100%;
+  margin-left: 200px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .workspace {
+    margin-left: 5px;
+  }
+}

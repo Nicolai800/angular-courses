@@ -10,52 +10,59 @@ import { PostItemComponent } from './requests/components/post-item/post-item.com
 import { PipesComponent } from './pipes/components/pipes/pipes.component';
 import { FormsComponent } from './forms/components/forms/forms.component';
 import { DecoratorsComponent } from './decorators/decorators.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'calculator',
-    pathMatch: 'full',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'calculator',
+        pathMatch: 'full',
+      },
+      {
+        path: 'calculator',
+        component: MyCalculatorComponent,
+      },
+      {
+        path: 'object-list',
+        component: ObjectListComponent,
+      },
+      {
+        path: 'object-list/:id',
+        component: ObjectItemComponent,
+      },
+      {
+        path: 'derectives',
+        component: DerectivesComponent,
+      },
+      {
+        path: 'life-cycle',
+        component: ParentComponent,
+      },
+      {
+        path: 'requests',
+        component: PostListComponent,
+      },
+      {
+        path: 'requests/:id',
+        component: PostItemComponent,
+      },
+      {
+        path: 'pipes',
+        component: PipesComponent,
+      },
+      {
+        path: 'forms',
+        component: FormsComponent,
+      },
+      {
+        path: 'dynamic',
+        component: DecoratorsComponent,
+      },
+      { path: '**', component: NotFoundPagesComponent },
+    ],
   },
-  {
-    path: 'calculator',
-    component: MyCalculatorComponent,
-  },
-  {
-    path: 'object-list',
-    component: ObjectListComponent,
-  },
-  {
-    path: 'object-list/:id',
-    component: ObjectItemComponent,
-  },
-  {
-    path: 'derectives',
-    component: DerectivesComponent,
-  },
-  {
-    path: 'life-cycle',
-    component: ParentComponent,
-  },
-  {
-    path: 'requests',
-    component: PostListComponent,
-  },
-  {
-    path: 'requests/:id',
-    component: PostItemComponent,
-  },
-  {
-    path: 'pipes',
-    component: PipesComponent,
-  },
-  {
-    path: 'forms',
-    component: FormsComponent,
-  },
-  {
-    path: 'dynamic',
-    component: DecoratorsComponent,
-  },
-  { path: '**', component: NotFoundPagesComponent },
 ];

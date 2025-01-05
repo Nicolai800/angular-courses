@@ -1,8 +1,11 @@
+:host {
+  width: 100%;
+}
+
 .forms-wrapper {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
-  width: 95dvw;
   padding: 20px;
 }
 

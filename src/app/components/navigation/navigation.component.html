@@ -1,70 +1,61 @@
-<nav class="navigation">
+<nav class="navigation" [class.active]="isNavShow">
   <a
     [routerLink]="['/calculator']"
     routerLinkActive="active"
     class="nav-link neon-blue"
     >Calculator</a
   >
-  <details>
-    <summary class="nav-link neon-blue">Lessons</summary>
 
-    <ul>
-      <li>
-        <a
-          [routerLink]="['/object-list']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Object list</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/derectives']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Derectives</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/life-cycle']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Life Cycle and Data transfers</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/requests']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Requests and Services</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/pipes']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Pipes</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/forms']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >Forms</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/dynamic']"
-          routerLinkActive="active"
-          class="nav-link neon-blue"
-          >ng-template & ng-container</a
-        >
-      </li>
-    </ul>
-  </details>
+  <a
+    [routerLink]="['/object-list']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Object list</a
+  >
+
+  <a
+    [routerLink]="['/derectives']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Derectives</a
+  >
+
+  <a
+    [routerLink]="['/life-cycle']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Life Cycle and Data transfers</a
+  >
+
+  <a
+    [routerLink]="['/requests']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Requests and Services</a
+  >
+
+  <a
+    [routerLink]="['/pipes']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Pipes</a
+  >
+
+  <a
+    [routerLink]="['/forms']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >Forms</a
+  >
+
+  <a
+    [routerLink]="['/dynamic']"
+    routerLinkActive="active"
+    class="nav-link neon-blue"
+    >ng-template & ng-container</a
+  >
 </nav>
+
+<button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
+  &#9776;
+</button>
