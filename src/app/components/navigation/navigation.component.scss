@@ -13,14 +13,14 @@
 }
 .nav-link {
   color: var(--neon);
-  text-shadow: 0 0 50px var(--neon-glow), 0 0 20px var(--neon-glow);
+  text-shadow: 0 0 30px var(--neon-glow), 0 0 20px var(--neon-glow);
   text-decoration: none;
   font-size: 20px;
   transition: all 0.2s ease;
 }
 
-.active {
-  color: var(--neon-glow);
+.activeLink {
+  color: var(--light-color);
 }
 
 .menu-toggle {
@@ -29,7 +29,7 @@
   top: 0;
   left: 0;
   background-color: var(--dark-color);
-  color: white;
+  color: var(--light-color);
   border: none;
   padding: 10px 15px;
   font-size: 18px;
@@ -45,7 +45,7 @@
     transition: all 0.3s ease;
   }
 
-  .navigation.active {
+  .active {
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
