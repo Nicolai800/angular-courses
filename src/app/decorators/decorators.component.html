@@ -9,3 +9,11 @@
   <button (click)="changeShow()" class="btn">Click</button>
 </div>
 <ng-template #second>Second false</ng-template>
+
+<h1>ViewChild, ViewChildren</h1>
+<div class="wrapper">
+  <p #paragraph>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+  <app-child-decorator #component></app-child-decorator>
+  <app-child-decorator></app-child-decorator>
+  <app-child-decorator></app-child-decorator>
+</div>
