@@ -30,7 +30,7 @@ export class DecoratorsComponent {
   childComponents?: QueryList<ChildDecoratorComponent>;
 
   ngAfterViewInit() {
-    console.log(this.paragraphLorem);
-    console.log(this.childComponents);
+    // console.log(this.paragraphLorem);
+    // console.log(this.childComponents);
   }
 }

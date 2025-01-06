@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ContentChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-child-decorator',
@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 export class ChildDecoratorComponent {
   title = 'Hello';
   private _second = 'World';
+
+  @ContentChild('childParagraph') paragraph?: ElementRef<HTMLParagraphElement>;
+
+  ngAfterContentInit() {
+    this.paragraph && console.log(this.paragraph);
+  }
 }
