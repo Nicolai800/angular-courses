@@ -16,6 +16,7 @@ export class MyChangeColorDirective {
     this.changeColor(this._el);
   }
 
+  // Bad practice
   private changeColor(el: ElementRef) {
     if (this.colors && this.colors.length > 0) {
       setInterval(() => {
