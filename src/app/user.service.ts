@@ -9,7 +9,7 @@ export class UserService {
 
   constructor() {}
 
-  login() {
-    this.isUserLogged.next(true);
+  toggleLoginState() {
+    this.isUserLogged.next(!this.isUserLogged.getValue());
   }
 }

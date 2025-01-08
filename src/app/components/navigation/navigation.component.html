@@ -1,4 +1,7 @@
 <nav class="navigation" [class.active]="isNavShow">
+  <button class="btn neon-blue" (click)="toggleLogin()">
+    {{ loginState ? "Logout" : "Login" }}
+  </button>
   <a
     [routerLink]="['/calculator']"
     routerLinkActive="activeLink"

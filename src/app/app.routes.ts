@@ -11,6 +11,7 @@ import { PipesComponent } from './pipes/components/pipes/pipes.component';
 import { FormsComponent } from './forms/components/forms/forms.component';
 import { DecoratorsComponent } from './decorators/decorators.component';
 import { LayoutComponent } from './layout/layout.component';
+import { isLoggedGuardFn } from './is-logged.guard';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,7 @@ export const routes: Routes = [
       {
         path: 'requests',
         component: PostListComponent,
+        canActivate: [isLoggedGuardFn],
       },
       {
         path: 'requests/:id',
