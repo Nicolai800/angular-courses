@@ -7,10 +7,15 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildDecoratorComponent } from './child-decorator/child-decorator.component';
+import { TodoItemComponent } from '../components/todo-item/todo-item.component';
+
+export interface TodoItemI {
+  text: string;
+}
 
 @Component({
   selector: 'app-decorators',
-  imports: [CommonModule, ChildDecoratorComponent],
+  imports: [CommonModule, ChildDecoratorComponent, TodoItemComponent],
   templateUrl: './decorators.component.html',
   styleUrl: './decorators.component.scss',
 })
@@ -32,5 +37,18 @@ export class DecoratorsComponent {
   ngAfterViewInit() {
     // console.log(this.paragraphLorem);
     // console.log(this.childComponents);
+  }
+  //----------ChangeDetectionStrategy, OnPush
+
+  todoArr: TodoItemI[] = [
+    { text: 'Test1' },
+    { text: 'Test2' },
+    { text: 'Test3' },
+    { text: 'Test4' },
+  ];
+
+  changeText() {
+    // this.todoArr[0].text = 'text changed';
+    this.todoArr[0] = { ...this.todoArr[0], text: 'text changed' };
   }
 }

@@ -22,3 +22,11 @@
     <p #childParagraph>Content works</p>
   </app-child-decorator>
 </div>
+
+<div class="wrapper">
+  <h3>ChangeDetectionStrategy</h3>
+  @for (item of todoArr; track $index) {
+  <app-todo-item [todo]="item"></app-todo-item>
+  }
+  <button class="btn neon-blue" (click)="changeText()">Change text</button>
+</div>
