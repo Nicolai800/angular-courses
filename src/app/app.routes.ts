@@ -12,6 +12,7 @@ import { FormsComponent } from './forms/components/forms/forms.component';
 import { DecoratorsComponent } from './decorators/decorators.component';
 import { LayoutComponent } from './layout/layout.component';
 import { isLoggedGuardFn } from './is-logged.guard';
+import { AnimationsComponent } from './pages/animations/animations.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,7 @@ export const routes: Routes = [
       {
         path: 'object-list',
         component: ObjectListComponent,
+        canActivate: [isLoggedGuardFn],
       },
       {
         path: 'object-list/:id',
@@ -46,6 +48,11 @@ export const routes: Routes = [
       {
         path: 'requests',
         component: PostListComponent,
+        canActivate: [isLoggedGuardFn],
+      },
+      {
+        path: 'animations',
+        component: AnimationsComponent,
         canActivate: [isLoggedGuardFn],
       },
       {

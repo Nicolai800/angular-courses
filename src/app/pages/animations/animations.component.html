@@ -1,0 +1,12 @@
+<h1>Angular Animations</h1>
+
+<div class="wrapper">
+  <div [@fadeInOut]="isShow ? 'open' : 'close'" class="animation-block">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi facere, maxime
+    exercitationem aperiam, totam ex accusamus dicta fugit dolor vero voluptatum
+    molestias est aliquam quae quia dignissimos cumque fuga consequuntur.
+  </div>
+  <button class="btn neon-blue" (click)="isShow = !isShow">
+    {{ isShow ? "Click to hide" : "Click to show" }}
+  </button>
+</div>
