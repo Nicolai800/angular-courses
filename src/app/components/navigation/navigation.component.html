@@ -6,6 +6,7 @@
     [routerLink]="['/calculator']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Calculator</a
   >
 
@@ -13,6 +14,7 @@
     [routerLink]="['/object-list']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Object list</a
   >
 
@@ -20,6 +22,7 @@
     [routerLink]="['/derectives']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Derectives</a
   >
 
@@ -27,6 +30,7 @@
     [routerLink]="['/life-cycle']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Life Cycle and Data transfers</a
   >
 
@@ -34,12 +38,14 @@
     [routerLink]="['/requests']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Requests and Services</a
   >
   <a
     [routerLink]="['/animations']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Animations and Signal</a
   >
 
@@ -47,6 +53,7 @@
     [routerLink]="['/pipes']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Pipes</a
   >
 
@@ -54,6 +61,7 @@
     [routerLink]="['/forms']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >Forms</a
   >
 
@@ -61,10 +69,14 @@
     [routerLink]="['/dynamic']"
     routerLinkActive="activeLink"
     class="nav-link neon-blue"
+    (click)="toggleNav()"
     >ng-template & ng-container</a
   >
 </nav>
 
 <button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
-  &#9776;
+  <span [innerHTML]="isNavShow ? '&#10006;' : '&#9776;'"></span>
 </button>
+<!-- <button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
+  <span>{{ isNavShow ? "&#9776;" : "&#10006;" }}</span>
+</button> -->
