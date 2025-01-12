@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { SignalComponent } from '../../components/signal/signal.component';
 
 // const enterTransition = transition(':enter', [
 //   style({ opacity: 0 }),
@@ -25,7 +26,7 @@ const fadeInOut = trigger('fadeInOut', [
 
 @Component({
   selector: 'app-animations',
-  imports: [],
+  imports: [SignalComponent],
   templateUrl: './animations.component.html',
   styleUrl: './animations.component.scss',
   animations: [fadeInOut],
