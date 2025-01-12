@@ -73,6 +73,9 @@
     >ng-template & ng-container</a
   >
 </nav>
+@if (isNavShow) {
+<div class="overlay" (click)="toggleNav()"></div>
+}
 
 <button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
   <span [innerHTML]="isNavShow ? '&#10006;' : '&#9776;'"></span>
