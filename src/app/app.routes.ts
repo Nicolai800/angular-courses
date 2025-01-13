@@ -13,6 +13,7 @@ import { DecoratorsComponent } from './decorators/decorators.component';
 import { LayoutComponent } from './layout/layout.component';
 import { isLoggedGuardFn } from './is-logged.guard';
 import { AnimationsComponent } from './pages/animations/animations.component';
+import { BasicRxjsComponent } from './components/basic-rxjs/basic-rxjs.component';
 
 export const routes: Routes = [
   {
@@ -60,8 +61,12 @@ export const routes: Routes = [
         component: PostItemComponent,
       },
       {
-        path: 'pipes',
-        component: PipesComponent,
+        path: 'requests/:id',
+        component: PostItemComponent,
+      },
+      {
+        path: 'rxjs',
+        component: BasicRxjsComponent,
       },
       {
         path: 'forms',
