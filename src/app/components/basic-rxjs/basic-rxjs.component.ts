@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { map, Observable, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 export const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-export const users = {
+export interface User {
+  gender: 'male' | 'female';
+  age: number;
+}
+
+export const users: { data: User[] } = {
   data: [
     {
       gender: 'male',
@@ -15,19 +22,19 @@ export const users = {
     },
     {
       gender: 'male',
-      age: 28,
+      age: 25,
     },
     {
       gender: 'female',
-      age: 17,
+      age: 20,
     },
     {
-      gender: 'frmale',
+      gender: 'female',
       age: 31,
     },
     {
       gender: 'male',
-      age: 27,
+      age: 22,
     },
     {
       gender: 'female',
@@ -35,14 +42,37 @@ export const users = {
     },
   ],
 };
+// Filtered by male and then return an average age
 
 @Component({
   selector: 'app-basic-rxjs',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './basic-rxjs.component.html',
   styleUrl: './basic-rxjs.component.scss',
 })
 export class BasicRxjsComponent {
+  usersObservable$ = of(users.data);
+  usersFromjsonplaceholder$?: Observable<any>;
+  http = inject(HttpClient);
+
+  maleAvegeAge$?: Observable<number>;
+  ngOnInit(): void {
+    this.maleAvegeAge$ = this.getMaleAverageAge();
+    this.usersFromjsonplaceholder$ = this.http.get(
+      'https://jsonplaceholder.typicode.com/users'
+    );
+  }
+
+  getMaleAverageAge(): Observable<number> {
+    return this.usersObservable$.pipe(
+      map((usersData) => {
+        const males = usersData.filter((item) => item.gender === 'male');
+        const totalAge = males.reduce((acc, item) => acc + item.age, 0);
+        return Math.floor(totalAge / males.length);
+      })
+    );
+  }
+
   observable$ = new Observable<number[]>((subscriber) => {
     subscriber.next(arr);
     // subscriber.next(51);
@@ -53,7 +83,6 @@ export class BasicRxjsComponent {
     //   subscriber.error(53);
     // }, 2000);
   });
-
   observer = {
     next: (value?: number[]) => {
       console.log('next ' + value);

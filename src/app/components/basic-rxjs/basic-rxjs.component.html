@@ -1,1 +1,14 @@
 <h1>Basic RxJS</h1>
+<div>
+  <h3>Observable, Observer, Pipe, map</h3>
+  <div>Male avege age - {{ maleAvegeAge$ | async }}</div>
+</div>
+<div>
+  <h3>Users from jsonplaceholder</h3>
+  @if (usersFromjsonplaceholder$) { @for(user of usersFromjsonplaceholder$ |
+  async; track user.id){
+  <div>{{ user.name }} - {{ user.email }}</div>
+  }}@else{
+  <div>Loading...</div>
+  }
+</div>
