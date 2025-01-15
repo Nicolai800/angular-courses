@@ -7,8 +7,13 @@
   <h3>Users from jsonplaceholder</h3>
   @if (usersFromjsonplaceholder$) { @for(user of usersFromjsonplaceholder$ |
   async; track user.id){
-  <div>{{ user.name }} - {{ user.email }}</div>
+  <div>
+    <span>{{ user.name }} - {{ user.email }}</span>
+    <br />
+    <span>{{ user.address.city }} - {{ user.address.zipcode }}</span>
+  </div>
   }}@else{
   <div>Loading...</div>
   }
 </div>
+<app-subject></app-subject>

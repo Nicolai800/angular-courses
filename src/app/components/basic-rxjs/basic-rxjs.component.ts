@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { SubjectComponent } from './subject/subject.component';
 
 export const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -46,7 +47,7 @@ export const users: { data: User[] } = {
 
 @Component({
   selector: 'app-basic-rxjs',
-  imports: [CommonModule],
+  imports: [CommonModule, SubjectComponent],
   templateUrl: './basic-rxjs.component.html',
   styleUrl: './basic-rxjs.component.scss',
 })
