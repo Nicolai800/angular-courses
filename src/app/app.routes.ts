@@ -69,6 +69,10 @@ export const routes: Routes = [
         component: BasicRxjsComponent,
       },
       {
+        path: 'pipes',
+        component: PipesComponent,
+      },
+      {
         path: 'forms',
         component: FormsComponent,
       },

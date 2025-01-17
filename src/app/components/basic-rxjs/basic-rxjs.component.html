@@ -1,19 +1,20 @@
 <h1>Basic RxJS</h1>
-<div>
-  <h3>Observable, Observer, Pipe, map</h3>
-  <div>Male avege age - {{ maleAvegeAge$ | async }}</div>
-</div>
-<div>
-  <h3>Users from jsonplaceholder</h3>
+
+<h3>Observable, Observer, Pipe, map</h3>
+<div>Average male age - {{ maleAvegeAge$ | async }}</div>
+
+<h3>Users from jsonplaceholder</h3>
+<div class="users-wrapper">
   @if (usersFromjsonplaceholder$) { @for(user of usersFromjsonplaceholder$ |
   async; track user.id){
-  <div>
-    <span>{{ user.name }} - {{ user.email }}</span>
-    <br />
-    <span>{{ user.address.city }} - {{ user.address.zipcode }}</span>
+  <div class="users-list">
+    <span>Name - {{ user.name }}</span>
+    <span>Email - {{ user.email }}</span>
+    <span> City - {{ user.address.city }}</span>
   </div>
   }}@else{
   <div>Loading...</div>
   }
 </div>
+
 <app-subject></app-subject>

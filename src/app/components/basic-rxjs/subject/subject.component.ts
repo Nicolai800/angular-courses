@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-subject',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss',
 })
