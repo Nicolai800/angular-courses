@@ -79,6 +79,15 @@
     (click)="toggleNav()"
     >ng-template & ng-container</a
   >
+  <div class="gitLogo-wrapper">
+    <a
+      href="https://github.com/Nicolai800"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/githubLogo.png" alt="Git hab Logo"
+    /></a>
+  </div>
 </nav>
 @if (isNavShow) {
 <div class="overlay" (click)="toggleNav()"></div>
@@ -87,6 +96,3 @@
 <button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
   <span [innerHTML]="isNavShow ? '&#10006;' : '&#9776;'"></span>
 </button>
-<!-- <button class="menu-toggle" aria-label="Navigation Menu" (click)="toggleNav()">
-  <span>{{ isNavShow ? "&#9776;" : "&#10006;" }}</span>
-</button> -->

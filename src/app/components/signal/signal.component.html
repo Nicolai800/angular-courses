@@ -1,8 +1,26 @@
 <h3>Signal</h3>
 
 <div class="signal-wrapper">
+  <h3>ComputedSignals</h3>
   <p>Counter: {{ counter() }}</p>
-  <p>computed signal:Doble counter: {{ doubleCounter() }}</p>
+  <p>computed signal x2: {{ doubleCounter() }}</p>
+  <p>computed signal x4: {{ counterMiltFour() }}</p>
+
   <button (click)="setCounter()" class="btn neon-blue">Set counter 3</button>
   <button (click)="plusCounter()" class="btn neon-blue">Plus counter</button>
+  <p>Conditional Count: {{ conditionalCount() }}</p>
+  <button class="btn neon-blue" (click)="setShowCounter()">
+    {{ showCounter() ? "Hide Conditional Count" : "Show Conditional Count" }}
+  </button>
+</div>
+<div class="todos-wrapper">
+  <h3>WritableSignal</h3>
+  @for (item of todos(); track $index) {
+  <div class="todos-list">
+    <p>{{ item.title }} - {{ item.done ? "Done" : "Not done" }}</p>
+    <button class="btn neon-blue" (click)="changeTodoStatus($index)">
+      {{ item.done ? "❌" : "✔️" }}
+    </button>
+  </div>
+  }
 </div>
