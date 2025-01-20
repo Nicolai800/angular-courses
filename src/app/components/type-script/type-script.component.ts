@@ -102,4 +102,45 @@ export class TypeScriptComponent {
   // constructor(){
   //   this.myFunc = this.oldFunc;
   // }
+
+  // Generic Type-----------------------------------
+  // getter = (data: any): any => data;
+  getter = <T>(data: T): T => data;
+  // getter<number>(10).length;
+  // getter<string>('hello').length;
+
+  // class User<T, K>{
+  //   constructor(public name: T, public age: K) {
+  //     getPass(): string{
+  //       return `${this.name} ${this.age}`
+  //     }
+  //   }
+  // }
+
+  // Decorators-----------------------------------
+  // Base structure of Decorator
+  // logClass = () => {};
+  // Class Decorator
+  // logClass2 = (constructor: Function)=>{
+  //   console.log(constructor);
+  // }
+  // @logClass2
+  // class User {
+  //   constructor(public name: string, public age: number) {}
+  //   getPass(): string {
+  //     return `${this.name} ${this.age}`
+
+  //   }
+  // Property Decorator
+  // logProperty = (targrt: Object, propertyKey: string | symbol) => {
+  //   console.log(propertyKey);
+  // };
+
+  // class User {
+  //   @logProperty     // <- Apply decorator for property
+  //   secret: number;
+  //   constructor (public name: string, public age: number, secret: number) {
+  //     this.secret = secret
+  //   }
+  // }
 }
