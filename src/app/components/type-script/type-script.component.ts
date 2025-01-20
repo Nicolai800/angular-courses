@@ -17,7 +17,10 @@ export const enum links2 {
 }
 export interface CustomType {
   name: string;
-  age: number;
+  age?: number;
+}
+export interface ExtendedType extends CustomType {
+  readonly email: string;
 }
 @Component({
   selector: 'app-type-script',
@@ -73,4 +76,18 @@ export class TypeScriptComponent {
     name: 'John',
     age: 30,
   };
+
+  // Rest Type-----------------------------------
+  createSkills = (name: string, ...skills: Array<string>): string =>
+    `${name} knows ${skills.join(', ')}`;
+
+  // Function variable type--------------------------
+  oldFunc(name: string): void {
+    alert(`Hello ${name}!`);
+  }
+
+  // myFunc!: (arg: string) => void;
+  // constructor(){
+  //   this.myFunc = this.oldFunc;
+  // }
 }
