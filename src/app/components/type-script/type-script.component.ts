@@ -15,13 +15,24 @@ export const enum links2 {
   linkedIn = 'https://www.linkedin.com/in/nicolai-parshutin-4670342b0/',
   youTube = 'https://www.youtube.com',
 }
+// Interfave & Type
 export interface CustomType {
   name: string;
-  age?: number;
+  age?: number; // <-- Optional
 }
+export type User = {
+  name: string;
+  age: number;
+};
 export interface ExtendedType extends CustomType {
-  readonly email: string;
+  readonly email: string; // <-- Can't be changed
 }
+export interface User3 {
+  name: string;
+  age: number;
+  [propName: string]: any;
+}
+export type User2 = [id: number, name: string, isActive: boolean];
 @Component({
   selector: 'app-type-script',
   imports: [],
@@ -40,6 +51,7 @@ export class TypeScriptComponent {
   tuple: [number, string] = [1, 'hello']; // One line
   tuple2?: [number, string]; // Multiple line
   //this.tuple2 = [1, 'hello'];
+  user: User2 = [1, 'Nick', true];
 
   // Any Type-----------------------------------
   anyType: [any, any, any] = [1, 'hello', true];
